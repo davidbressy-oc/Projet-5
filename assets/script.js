@@ -17,6 +17,21 @@ const slides = [
 	}
 ]
 
+let dotscontainer = document.querySelector(".dots");
+
+for (let i = 0; i < slides.length; i++) {
+		let dotspan = document.createElement("span");
+		dotspan.classList.add("dot");
+	if (i === 0) {
+		dotspan.classList.add("dot_selected");
+	} 
+	
+dotscontainer.appendChild(dotspan);
+}
+
+
+
+
 
 let arrow = document.querySelectorAll(".arrow");
 
@@ -30,3 +45,9 @@ for (let i = 0; i < arrow.length; i++) {
 	});
 
 }
+
+
+/*			<span class="dot dot_selected" data-slide="1"></span>
+			<span class="dot" data-slide="2"></span>
+			<span class="dot" data-slide="3"></span>
+			<span class="dot" data-slide="4"></span> */
