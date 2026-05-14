@@ -1,3 +1,4 @@
+/* Slide Tableau*/
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -17,37 +18,31 @@ const slides = [
 	}
 ]
 
+/* Bullet points */
 let dotscontainer = document.querySelector(".dots");
 
 for (let i = 0; i < slides.length; i++) {
-		let dotspan = document.createElement("span");
-		dotspan.classList.add("dot");
+	let dotspan = document.createElement("span");
+	dotspan.classList.add("dot");
 	if (i === 0) {
 		dotspan.classList.add("dot_selected");
-	} 
-	
-dotscontainer.appendChild(dotspan);
+	}
+	dotscontainer.appendChild(dotspan);
 }
 
-
-
-
-
+/* Flèches Slider */
 let arrow = document.querySelectorAll(".arrow");
 
 for (let i = 0; i < arrow.length; i++) {
 	arrow[i].addEventListener("click", (event) => {
 		if (i === 0) {
-			console.log("Flèche Gauche");
+			console.log("currentSlideGauche");
 		} else {
-			console.log("Flèche Droite");
+			console.log("currentSlideDroite");
 		}
 	});
-
 }
 
+/* Slide clicks*/
 
-/*			<span class="dot dot_selected" data-slide="1"></span>
-			<span class="dot" data-slide="2"></span>
-			<span class="dot" data-slide="3"></span>
-			<span class="dot" data-slide="4"></span> */
+let currentSlide = 0;
