@@ -20,7 +20,6 @@ const slides = [
 
 /* Bullet points */
 let dotscontainer = document.querySelector(".dots");
-
 for (let i = 0; i < slides.length; i++) {
 	let dotspan = document.createElement("span");
 	dotspan.classList.add("dot");
@@ -32,17 +31,41 @@ for (let i = 0; i < slides.length; i++) {
 
 /* Flèches Slider */
 let arrow = document.querySelectorAll(".arrow");
-
+let currentSlide = 0;
 for (let i = 0; i < arrow.length; i++) {
-	arrow[i].addEventListener("click", (event) => {
+	arrow[i].addEventListener("click", () => {
 		if (i === 0) {
-			console.log("currentSlideGauche");
+			currentSlide--;
 		} else {
-			console.log("currentSlideDroite");
+			currentSlide++;
 		}
+		console.log(currentSlide);
 	});
 }
 
-/* Slide clicks*/
 
-let currentSlide = 0;
+
+
+/* Récupérer slides image et slides tagLine ?
+récupérer les bullet points ?
+
+dans le html
+banner img ===> slides image
+banner p ===> slides tagLine
+
+sortir dot selected de la boucle et le faire correspondre au currentSlide ?
+
+
+Au clic sur la flèche droite : 
+on change le bullet point actif au suivant ;
+on change l’image ;
+on change le texte correspondant à l’image.
+Au clic sur la flèche gauche, nous faisons la même chose mais pour les éléments précédents. 
+Recommandations : 
+
+Pour changer l’image, pensez à bien construire le chemin de la nouvelle image.
+Pour intégrer le texte, utilisez la propriété innerHTML et insérez la tagLine de la slide.
+Travaillez avec les index du tableau. 
+
+
+*/
