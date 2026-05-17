@@ -20,31 +20,38 @@ const slides = [
 
 /* Bullet points */
 let dotscontainer = document.querySelector(".dots");
+
 for (let i = 0; i < slides.length; i++) {
-    let dotspan = document.createElement("span");
-    dotspan.classList.add("dot");
-    if (i === 0) {
-        dotspan.classList.add("dot_selected");
-    }
-    dotscontainer.appendChild(dotspan);
+	let dotspan = document.createElement("span");
+	dotspan.classList.add("dot");
+
+	if (i === 0) {
+		dotspan.classList.add("dot_selected");
+	}
+
+	dotscontainer.appendChild(dotspan);
 }
 
 /* Flèches Slider */
 let arrow = document.querySelectorAll(".arrow");
 let dots = document.querySelectorAll(".dot");
-console.log(arrow)
 let currentSlide = 0;
+
 for (let i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", () => {
-
-        if (i === 0) {
-            currentSlide--;
-
-
-        } else {
-            currentSlide++;
-        }
-
+	arrow[i].addEventListener("click", () => {
+		if (i === 0) {
+			if (currentSlide === 0) {
+				currentSlide = slides.length - 1;
+			} else {
+				currentSlide--;
+			}
+		} else {
+			if (currentSlide === slides.length - 1) {
+				currentSlide = 0;
+			} else {
+				currentSlide++;
+			}
+		}
         document.querySelector(".banner-img").src = `./assets/images/slideshow/${slides[currentSlide].image}`;
         document.querySelector("#banner p").innerHTML = slides[currentSlide].tagLine;
 
@@ -52,6 +59,5 @@ for (let i = 0; i < arrow.length; i++) {
             dots[bullets].classList.remove('dot_selected')
         }
         dots[currentSlide].classList.add('dot_selected')
-        console.log(currentSlide);
-    });
+	});
 }
